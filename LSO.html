@@ -1,0 +1,264 @@
+- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Modern Health & Wellness</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #f2f7f4;
+      color: #333;
+    }
+
+    header {
+      background: linear-gradient(135deg, #43cea2, #185a9d);
+      color: white;
+      padding: 3rem 1rem;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 3rem;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      margin-top: 0.5rem;
+    }
+
+    section {
+      max-width: 1100px;
+      margin: auto;
+      padding: 2rem 1rem;
+    }
+
+    h2 {
+      text-align: center;
+      color: #185a9d;
+      margin-bottom: 1.5rem;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
+    .card {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 20px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      text-align: center;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    }
+
+    .card i {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: #43cea2;
+    }
+
+    .quiz-section {
+      background: white;
+      padding: 2rem;
+      border-radius: 20px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+      margin-top: 3rem;
+    }
+
+    .question {
+      font-weight: 600;
+      margin-bottom: 0.8rem;
+    }
+
+    .options label {
+      display: block;
+      padding: 0.7rem;
+      background: #f0f0f0;
+      margin-bottom: 0.5rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .options input {
+      margin-right: 0.5rem;
+    }
+
+    .options label:hover {
+      background: #e0f7fa;
+    }
+
+    .quiz-btn {
+      margin-top: 1rem;
+      background: #43cea2;
+      color: white;
+      padding: 0.8rem 1.5rem;
+      border: none;
+      border-radius: 10px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    .result {
+      margin-top: 1rem;
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+
+    footer {
+      background: #1b1b1b;
+      color: white;
+      padding: 2rem;
+      text-align: center;
+      margin-top: 4rem;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Health & Wellness</h1>
+    <p>Feel better, live healthier, think clearer</p>
+  </header>
+
+  <section>
+    <h2>💪 Physical Health Tips</h2>
+    <div class="cards">
+      <div class="card">
+        <i class="fas fa-running"></i>
+        <h3>Exercise Daily</h3>
+        <p>Move your body at least 30 minutes a day to boost energy and prevent disease.</p>
+      </div>
+      <div class="card">
+        <i class="fas fa-glass-whiskey"></i>
+        <h3>Hydrate</h3>
+        <p>Drink enough water to support metabolism and flush out toxins.</p>
+      </div>
+      <div class="card">
+        <i class="fas fa-bed"></i>
+        <h3>Sleep Well</h3>
+        <p>Rest 7–9 hours per night to recharge your mind and body.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>🧠 Mental Health Tips</h2>
+    <div class="cards">
+      <div class="card">
+        <i class="fas fa-spa"></i>
+        <h3>Mindfulness</h3>
+        <p>Practice deep breathing or meditation to reduce stress and anxiety.</p>
+      </div>
+      <div class="card">
+        <i class="fas fa-user-friends"></i>
+        <h3>Connect Socially</h3>
+        <p>Stay connected with loved ones to combat loneliness and boost mood.</p>
+      </div>
+      <div class="card">
+        <i class="fas fa-mobile-alt"></i>
+        <h3>Digital Break</h3>
+        <p>Step away from screens regularly to protect your mental focus and vision.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>🥗 Healthy Diet Tips</h2>
+    <div class="cards">
+      <div class="card">
+        <i class="fas fa-carrot"></i>
+        <h3>Eat Fresh</h3>
+        <p>Choose fruits, vegetables, and whole foods to fuel your body.</p>
+      </div>
+      <div class="card">
+        <i class="fas fa-ban"></i>
+        <h3>Avoid Junk</h3>
+        <p>Minimize processed snacks and sugar-rich drinks for better digestion.</p>
+      </div>
+      <div class="card">
+        <i class="fas fa-seedling"></i>
+        <h3>Balanced Meals</h3>
+        <p>Combine carbs, proteins, and healthy fats in every meal.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="quiz-section">
+    <h2>🧪 Quick Quiz: Test Your Health IQ</h2>
+    <div id="quiz"></div>
+    <button class="quiz-btn" onclick="submitQuiz()">Submit Quiz</button>
+    <div class="result" id="result"></div>
+  </section>
+
+  <footer>
+    &copy; 2025 Health & Wellness. Designed for your better life.
+  </footer>
+
+  <script>
+    const quizData = [
+      {
+        question: "How much water should an average adult drink daily?",
+        options: ["1L", "2-3L", "5L", "As much as possible"],
+        answer: "2-3L"
+      },
+      {
+        question: "Which vitamin comes from sunlight?",
+        options: ["Vitamin A", "Vitamin D", "Vitamin C", "Vitamin B12"],
+        answer: "Vitamin D"
+      },
+      {
+        question: "What is a good practice for mental calmness?",
+        options: ["Skipping meals", "Multitasking", "Meditation", "Overworking"],
+        answer: "Meditation"
+      }
+    ];
+
+    function loadQuiz() {
+      const quiz = document.getElementById("quiz");
+      quiz.innerHTML = "";
+      quizData.forEach((q, index) => {
+        quiz.innerHTML += `
+          <div class="question">${index + 1}. ${q.question}</div>
+          <div class="options">
+            ${q.options.map(opt => `
+              <label><input type="radio" name="q${index}" value="${opt}"> ${opt}</label>
+            `).join('')}
+          </div><br/>
+        `;
+      });
+    }
+
+    function submitQuiz() {
+      let score = 0;
+      quizData.forEach((q, i) => {
+        const selected = document.querySelector(`input[name="q${i}"]:checked`);
+        if (selected && selected.value === q.answer) score++;
+      });
+      document.getElementById("result").innerText = `🎉 You got ${score} out of ${quizData.length} correct!`;
+    }
+
+    loadQuiz();
+  </script>
+
+</body>
+</html>
+
+
+
